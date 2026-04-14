@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class MapGenerator : MonoBehaviour
 {
     private int[] floorplan;
+    public int[] getFloorPlan => floorplan;
+
 
     private int floorPlanCount;
     private int minRooms;
@@ -20,6 +22,10 @@ public class MapGenerator : MonoBehaviour
     private Queue<int> cellQueue;
     private List<Cell> spawnedCells;
 
+    public List<Cell> getSpawnedCells => spawnedCells;
+
+    public static MapGenerator instance;
+
     [Header("Sprite References")]
     [SerializeField] private Sprite altar;
     [SerializeField] private Sprite shop;
@@ -27,6 +33,8 @@ public class MapGenerator : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        instance = this;
+
         minRooms = 7;
         maxRooms = 15;
         cellSize = 0.16f;
@@ -111,6 +119,7 @@ public class MapGenerator : MonoBehaviour
         }
 
         UpdateSpecialRoomVisuals();
+        RoomManager.instance.SetupRooms(spawnedCells);
     }
 
     void UpdateSpecialRoomVisuals() 
@@ -120,16 +129,19 @@ public class MapGenerator : MonoBehaviour
             if(cell.index == altarRoomIndex)
             {
                 cell.SetSpecialRoomSprite(altar);
+                cell.SetRoomType(RoomType.Altar);
             }
 
             if(cell.index == shopRoomIndex)
             {
                 cell.SetSpecialRoomSprite(shop);
+                cell.SetRoomType(RoomType.Shop);
             }
 
             if(cell.index == bossRoomIndex)
             {
                 cell.SetSpecialRoomSprite(boss);
+                cell.SetRoomType(RoomType.Boss);
             }
         }
     }
@@ -176,8 +188,12 @@ public class MapGenerator : MonoBehaviour
         Cell newCell = Instantiate(cellPrefab, position, Quaternion.identity);
         newCell.value = 1;
         newCell.index = index;
+        newCell.SetRoomType(RoomType.Regular);
+
+        newCell.cellList.Add(index);
 
         spawnedCells.Add(newCell);
     }
 
+    
 }

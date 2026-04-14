@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d245c2e6da58d364ea85a28d946ed852, type: 3}
+  m_Name: Boss Doors
+  m_EditorClassIdentifier: Assembly-CSharp::DoorScriptable
+  roomType: 3
+  upDoor: {fileID: -469862514937789503, guid: bdc3373258f2e9f4ca2ff604625c7712, type: 3}
+  downDoor: {fileID: -7364635357260651366, guid: bdc3373258f2e9f4ca2ff604625c7712, type: 3}
+  leftDoor: {fileID: 5488633019205982259, guid: bdc3373258f2e9f4ca2ff604625c7712, type: 3}
+  rightDoor: {fileID: -7944439057621826387, guid: bdc3373258f2e9f4ca2ff604625c7712, type: 3}
