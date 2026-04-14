@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour
 {
     public playerProjectileScript projectileScript;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
+
+    private PlayerInput playerInput;
 
     Vector2 attackValue;
     Vector2 moveValue;
@@ -21,12 +25,20 @@ public class PlayerScript : MonoBehaviour
     {
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Attack");
-        projectileScript = GetComponent<playerProjectileScript>();
+        
     }
     private void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        foreach (var actionMap in playerInput.actions.actionMaps)
+        {
+            actionMap.Disable();
+        }
+
+        playerInput.SwitchCurrentActionMap("Player");
     }
 
     private void Update()
@@ -78,7 +90,7 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("walkingDown", false);
         }
 
-        projectileScript.
+       
     }
 
     private void FixedUpdate()
@@ -86,6 +98,9 @@ public class PlayerScript : MonoBehaviour
         rb.linearVelocity = moveValue * speed;
     }
 
-     
+     public void InstantiateBullet()
+    {
+        Instantiate(bulletPrefab,transform.position,firingPoint.rotation);
+    }
     
 }
