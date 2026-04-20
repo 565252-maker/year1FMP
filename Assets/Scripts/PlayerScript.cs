@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour
 {
     public playerProjectileScript projectileScript;
+    DoorEnterScript doorEnterScript;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
 
     private PlayerInput playerInput;
+
+   
 
     Vector2 attackValue;
     Vector2 moveValue;
@@ -21,11 +24,13 @@ public class PlayerScript : MonoBehaviour
 
     public float speed;
 
+    private float shootCooldown;
+
     private void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Attack");
-        
+        doorEnterScript = GetComponent<DoorEnterScript>();
     }
     private void Awake()
     {
@@ -90,6 +95,8 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("walkingDown", false);
         }
 
+        shootCooldown += Time.deltaTime;
+
        
     }
 
@@ -98,9 +105,21 @@ public class PlayerScript : MonoBehaviour
         rb.linearVelocity = moveValue * speed;
     }
 
-     public void InstantiateBullet()
+    public void Shoot()
     {
-        Instantiate(bulletPrefab,transform.position,firingPoint.rotation);
+        if(shootCooldown > 0.5f)
+        {
+            
+            Instantiate(bulletPrefab, firingPoint.position, transform.rotation);
+            projectileScript.attackValue = attackValue;
+            
+            shootCooldown = 0;
+        }
+       
     }
+
     
+
+
+
 }
