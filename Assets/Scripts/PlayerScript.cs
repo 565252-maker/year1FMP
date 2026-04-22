@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
-    public playerProjectileScript projectileScript;
+    playerProjectileScript projectileScript;
     DoorEnterScript doorEnterScript;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
@@ -50,6 +50,12 @@ public class PlayerScript : MonoBehaviour
     {
         moveValue = moveAction.ReadValue<Vector2>();
         attackValue = attackAction.ReadValue<Vector2>();
+
+        if (attackValue.x != 0 || attackValue.y != 0)
+        {
+            Shoot(attackValue);
+        }
+
 
         if(moveValue.x > 0)
         {
@@ -107,18 +113,41 @@ public class PlayerScript : MonoBehaviour
 
     public void Shoot()
     {
+        /*
+        GameObject obj;
+
         if(shootCooldown > 0.5f)
         {
+            print("attack dir=" + attackValue);
+
             
-            Instantiate(bulletPrefab, firingPoint.position, transform.rotation);
-            projectileScript.attackValue = attackValue;
+            obj = Instantiate(bulletPrefab, firingPoint.position, transform.rotation);
+            obj.GetComponent<playerProjectileScript>().attackValue = attackValue;
             
             shootCooldown = 0;
         }
-       
+       */
+
     }
 
-    
+    public void Shoot( Vector2 attackDirection )
+    {
+        GameObject obj;
+
+        if (shootCooldown > 0.5f)
+        {
+            print("attack dir=" + attackDirection);
+
+
+            obj = Instantiate(bulletPrefab, firingPoint.position, transform.rotation);
+            obj.GetComponent<playerProjectileScript>().attackValue = attackDirection;
+
+            shootCooldown = 0;
+        }
+
+    }
+
+
 
 
 

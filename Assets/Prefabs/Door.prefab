@@ -197,9 +197,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778226317dddc9749bf659e83f8c911c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  HasCollided: 0
   sr: {fileID: 21106184954578119}
   Door0: {fileID: 9023551971552478441, guid: 88b73b571c2ada64da67db5fe0955f83, type: 3}
   Door1: {fileID: 4956686200269543900, guid: 88b73b571c2ada64da67db5fe0955f83, type: 3}
   Door2: {fileID: -8981072876050829604, guid: 88b73b571c2ada64da67db5fe0955f83, type: 3}
   Door3: {fileID: -5492131335075891253, guid: 88b73b571c2ada64da67db5fe0955f83, type: 3}
+  ShopDoor0: {fileID: -2045076507342872559, guid: 21b0b6f7ca1e88941bceb10e633626b6, type: 3}
+  ShopDoor1: {fileID: 4647393974703549199, guid: 21b0b6f7ca1e88941bceb10e633626b6, type: 3}
+  ShopDoor2: {fileID: 8417172819732546552, guid: 21b0b6f7ca1e88941bceb10e633626b6, type: 3}
+  ShopDoor3: {fileID: 4473180920733689823, guid: 21b0b6f7ca1e88941bceb10e633626b6, type: 3}
+  AltarDoor0: {fileID: -4727159445796501680, guid: 886f2c81cf5292e4fa76feb31e8a963a, type: 3}
+  AltarDoor1: {fileID: -1636296094320212182, guid: 886f2c81cf5292e4fa76feb31e8a963a, type: 3}
+  AltarDoor2: {fileID: -8457871848933948826, guid: 886f2c81cf5292e4fa76feb31e8a963a, type: 3}
+  AltarDoor3: {fileID: -5891020359044387974, guid: 886f2c81cf5292e4fa76feb31e8a963a, type: 3}
+  BossDoor0: {fileID: 5488633019205982259, guid: bdc3373258f2e9f4ca2ff604625c7712, type: 3}
+  BossDoor1: {fileID: -7364635357260651366, guid: bdc3373258f2e9f4ca2ff604625c7712, type: 3}
+  BossDoor2: {fileID: -7944439057621826387, guid: bdc3373258f2e9f4ca2ff604625c7712, type: 3}
+  BossDoor3: {fileID: -469862514937789503, guid: bdc3373258f2e9f4ca2ff604625c7712, type: 3}

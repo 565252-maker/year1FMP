@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3b28a1fa73a36c04184eb02a92d51e26
+guid: 19add06db1a9f9545be0b3f253c30189
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3317440462824710866
-    second: Zone1Room4_0
+      213: 1765069258945606883
+    second: Zone1ShopBossAndAltarRoom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -165,7 +165,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zone1Room4_0
+      name: Zone1ShopBossAndAltarRoom_0
       rect:
         serializedVersion: 2
         x: 0
@@ -180,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d2ac2e368ae90e20800000000000000
-      internalID: 3317440462824710866
+      spriteID: 3e43a67a329ce7810800000000000000
+      internalID: 1765069258945606883
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Zone1Room4_0: 3317440462824710866
+      Zone1ShopBossAndAltarRoom_0: 1765069258945606883
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -15,4 +15,4 @@ MonoBehaviour:
   roomType: 3
   occupiedTiles: 00000000
   roomVariations:
-  - {fileID: 1765069258945606883, guid: e5a362dfbc61d4b4db87faa66bc772d4, type: 3}
+  - {fileID: 1765069258945606883, guid: 6cf473444f2987440b2db25ad751e296, type: 3}
