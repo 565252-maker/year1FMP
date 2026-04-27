@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 792010854}
   - component: {fileID: 792010853}
   - component: {fileID: 792010855}
+  - component: {fileID: 792010856}
   m_Layer: 0
   m_Name: Map Generator
   m_TagString: Untagged
@@ -415,6 +416,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 335ac388a7d98124b9dca328285097b6, type: 2}
   - {fileID: 11400000, guid: 4d72f0162ab6a914eb448892c6252c82, type: 2}
   - {fileID: 11400000, guid: ea9da16149636e341860f474416f93bc, type: 2}
+  altarRoom: {fileID: 1765069258945606883, guid: 19add06db1a9f9545be0b3f253c30189, type: 3}
+--- !u!114 &792010856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792010852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fceab8fb1801ad48a2dbaa3ba9982f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapManager
 --- !u!1 &839113207
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +558,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77ffd7e3-7b13-4e1d-8494-4d3eb84853c5
+    m_ActionName: Player/test
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -581,6 +599,7 @@ MonoBehaviour:
   firingPoint: {fileID: 839113208}
   anim: {fileID: 1131013691}
   speed: 1.5
+  timeSpeed: 0
 --- !u!50 &1131013689
 Rigidbody2D:
   serializedVersion: 5

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Door
   - Room
+  - PlayerBullet
+  - Enemy
+  - EnemySpawn
+  - DoorEnterScript
   layers:
   - Default
   - TransparentFX

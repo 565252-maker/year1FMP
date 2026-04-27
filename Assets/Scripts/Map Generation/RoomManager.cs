@@ -22,6 +22,7 @@ public class RoomManager : MonoBehaviour
 
     public static RoomManager instance;
 
+    public Sprite altarRoom;
     public void Awake()
     {
         instance = this;

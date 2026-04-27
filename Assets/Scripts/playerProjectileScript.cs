@@ -7,6 +7,7 @@ public class playerProjectileScript : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float speed = 2.5f;
     [SerializeField] private float lifetime = 3f;
+    public float damage;
 
     public Vector2 attackValue;
 
@@ -15,6 +16,7 @@ public class playerProjectileScript : MonoBehaviour
     {
         direction = attackValue;
         Destroy(gameObject, lifetime);
+        damage = 1f;
     }
 
     private void Awake()
@@ -29,13 +31,26 @@ public class playerProjectileScript : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.tag == ("Enemy"))
+        if(other.tag == ("Enemy"))
         {
-            collision.
             Destroy(gameObject);
-            
+            if(other.gameObject.TryGetComponent<SlimeEnemy>(out SlimeEnemy enemyComponent))
+            {
+                enemyComponent.TakeDamage(damage);
+            }
+
+            if(other.gameObject.TryGetComponent<SkullEnemy>(out SkullEnemy enemyComponent1))
+            {
+                enemyComponent1.TakeDamage(damage);
+            }
+        }
+        if (other.tag == ("Room"))
+        {
+
+            Destroy(gameObject);
+
         }
     }
 

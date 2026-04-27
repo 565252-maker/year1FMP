@@ -11,17 +11,25 @@ public class SkullEnemy : MonoBehaviour
     public Transform bulletPos;
 
     Rigidbody2D rb;
-
+    Animator anim;
     [SerializeField]
     GameObject bullet;
 
     float fireRate;
     float nextFire;
 
+    private float health;
+
+    float hurtCountdown = 0;
+
+    GameObject EnemySpawn;
+
+    EnemySpawnScript enemySpawnScript;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +37,11 @@ public class SkullEnemy : MonoBehaviour
         fireRate = 1f;
         nextFire = 3;
         SetNewDestination();
+
+        health = 2f;
+
+        EnemySpawn = GameObject.FindWithTag("EnemySpawn");
+        enemySpawnScript = EnemySpawn.GetComponent<EnemySpawnScript>();
     }
 
     // Update is called once per frame
@@ -47,6 +60,12 @@ public class SkullEnemy : MonoBehaviour
         CheckIfTimeToFire();
 
         fireRate += Time.deltaTime;
+
+        hurtCountdown += Time.deltaTime;
+        if (hurtCountdown > 0.2f)
+        {
+            anim.SetBool("hurt", false);
+        }
     }
 
     void SetNewDestination()
@@ -70,5 +89,20 @@ public class SkullEnemy : MonoBehaviour
             Instantiate(bullet, bulletPos.position, Quaternion.identity);
             fireRate = 0;
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            enemySpawnScript.enemiesAlive -= 1;
+        }
+
+        hurtCountdown = 0;
+        anim.SetBool("hurt", true);
+
     }
 }

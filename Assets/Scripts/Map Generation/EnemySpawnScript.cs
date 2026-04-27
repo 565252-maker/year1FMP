@@ -20,11 +20,15 @@ public class EnemySpawnScript : MonoBehaviour
 
     public Sprite BossRoom;
 
-    int enemiesAlive = 0;
+    public int enemiesAlive;
 
+    public GameObject altar;
+
+    
 
     public void SpawnEnemies()
     {
+        enemiesAlive = 0;
         for(int i = 0; i < enemyCount; i++)
         {
             int choice = Random.Range(0, 2);
@@ -32,6 +36,7 @@ public class EnemySpawnScript : MonoBehaviour
             enemyHasSpawned = true;
             enemiesAlive += 1;
         }
+       // EnemyManager.instance.EnemiesAliveCheck(enemiesAlive);
     }
 
     private void Awake()
@@ -40,10 +45,11 @@ public class EnemySpawnScript : MonoBehaviour
         {
             enemyHasSpawned = true;
         }
+        
     }
     private void Start()
     {
-
+        
         
         if(sr.sprite == ShopRoom)
         {
@@ -51,7 +57,7 @@ public class EnemySpawnScript : MonoBehaviour
         }
         if (sr.sprite == AltarRoom)
         {
-            enemyHasSpawned = true;
+            enemyHasSpawned = true;           
         }
         if (sr.sprite == BossRoom)
         {
@@ -65,6 +71,7 @@ public class EnemySpawnScript : MonoBehaviour
         {
             enemiesAlive = 0;
         }
+       // EnemyManager.instance.EnemiesAliveCheck(enemiesAlive);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

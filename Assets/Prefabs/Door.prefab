@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 47687883832771379}
   m_Layer: 0
   m_Name: EnterDoor
-  m_TagString: Door
+  m_TagString: DoorEnterScript
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -26,11 +26,16 @@ public class PlayerScript : MonoBehaviour
 
     private float shootCooldown;
 
+    public float timeSpeed;
+
+    
+
     private void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Attack");
         doorEnterScript = GetComponent<DoorEnterScript>();
+        
     }
     private void Awake()
     {
@@ -51,13 +56,26 @@ public class PlayerScript : MonoBehaviour
         moveValue = moveAction.ReadValue<Vector2>();
         attackValue = attackAction.ReadValue<Vector2>();
 
+        print(moveValue.x);
         if (attackValue.x != 0 || attackValue.y != 0)
         {
             Shoot(attackValue);
         }
 
+        if(moveValue.x > moveValue.y)
+        {
+            timeSpeed = moveValue.x;
+        }
+        else
+        {
+            timeSpeed = moveValue.y;
+        }
 
-        if(moveValue.x > 0)
+        if(timeSpeed == 0)
+        {
+            timeSpeed = 0.1f;
+        }
+        if (moveValue.x > 0)
         {
             anim.SetBool("walkingRight", true);
             anim.SetBool("walkingLeft", false);
@@ -111,32 +129,13 @@ public class PlayerScript : MonoBehaviour
         rb.linearVelocity = moveValue * speed;
     }
 
-    public void Shoot()
-    {
-        /*
-        GameObject obj;
-
-        if(shootCooldown > 0.5f)
-        {
-            print("attack dir=" + attackValue);
-
-            
-            obj = Instantiate(bulletPrefab, firingPoint.position, transform.rotation);
-            obj.GetComponent<playerProjectileScript>().attackValue = attackValue;
-            
-            shootCooldown = 0;
-        }
-       */
-
-    }
-
     public void Shoot( Vector2 attackDirection )
     {
         GameObject obj;
 
         if (shootCooldown > 0.5f)
         {
-            print("attack dir=" + attackDirection);
+            
 
 
             obj = Instantiate(bulletPrefab, firingPoint.position, transform.rotation);

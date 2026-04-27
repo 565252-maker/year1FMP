@@ -23,20 +23,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "test",
+                    "type": "Button",
+                    "id": "77ffd7e3-7b13-4e1d-8494-4d3eb84853c5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "978bfe49-cc26-4a3d-ab7b-7d7a29327403",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WASD",
                     "id": "00ca640b-d935-4593-8157-c05846ea39b3",
@@ -105,11 +103,11 @@
                 },
                 {
                     "name": "",
-                    "id": "3ea4d645-4504-4529-b061-ab81934c3752",
-                    "path": "<HID::Logitech Logitech Dual Action>/hat",
+                    "id": "518f9304-2290-4dc8-a91e-cd46bc0b64b2",
+                    "path": "<Joystick>/stick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": ";Joystick",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -223,6 +221,28 @@
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9dab1b72-5e44-4970-b7fb-e23d7e315c9e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "test",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04792f68-a2c5-4a83-8cf4-88f6a23a713e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "test",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
