@@ -73,7 +73,7 @@ public class SlimeEnemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            enemySpawnScript.enemiesAlive -= 1;
+            GameManager.Instance.enemiesAlive -= 1;
         }
 
         hurtCountdown = 0;

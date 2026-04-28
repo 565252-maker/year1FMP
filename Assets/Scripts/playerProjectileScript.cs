@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 public class playerProjectileScript : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField] private float speed = 2.5f;
+    [SerializeField] private float speed;
     [SerializeField] private float lifetime = 3f;
     public float damage;
 
@@ -16,7 +16,8 @@ public class playerProjectileScript : MonoBehaviour
     {
         direction = attackValue;
         Destroy(gameObject, lifetime);
-        damage = 1f;
+        damage = GameManager.Instance.playerDamage;
+        speed = GameManager.Instance.playerShotSpeed;
     }
 
     private void Awake()

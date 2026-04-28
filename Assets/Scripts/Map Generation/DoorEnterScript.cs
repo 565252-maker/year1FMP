@@ -12,7 +12,7 @@ public class DoorEnterScript : MonoBehaviour
     GameObject enemySpawn;
     EnemySpawnScript enemySpawnScript;
 
-    bool doorsLocked;
+    
 
     public SpriteRenderer sr;
 
@@ -47,17 +47,17 @@ public class DoorEnterScript : MonoBehaviour
         enemySpawn = GameObject.FindGameObjectWithTag("EnemySpawn");
         enemySpawnScript = enemySpawn.GetComponent<EnemySpawnScript>();
 
-        doorsLocked = false;
+        
     }
     private void Update()
     {
-        
+
        
         
        
         if (HasCollided)
         {
-            if (!doorsLocked)
+            if (GameManager.Instance.doorsLocked == false)  
 
             {
                 //Normal Door Sprite check for direction teleport
@@ -133,9 +133,11 @@ public class DoorEnterScript : MonoBehaviour
                     timeEaterActive = timeEaterActive * -1;
                     Debug.Log(timeEaterActive);
                 }
-            }
-            
 
+                
+            }
+
+            HasCollided = false;
         }
 
        

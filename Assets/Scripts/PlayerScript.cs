@@ -56,7 +56,7 @@ public class PlayerScript : MonoBehaviour
         moveValue = moveAction.ReadValue<Vector2>();
         attackValue = attackAction.ReadValue<Vector2>();
 
-        print(moveValue.x);
+      //  print(moveValue.x);
         if (attackValue.x != 0 || attackValue.y != 0)
         {
             Shoot(attackValue);
@@ -133,7 +133,7 @@ public class PlayerScript : MonoBehaviour
     {
         GameObject obj;
 
-        if (shootCooldown > 0.5f)
+        if (shootCooldown > GameManager.Instance.playerFireCooldown)
         {
             
 

@@ -22,7 +22,7 @@ public class EnemySpawnScript : MonoBehaviour
 
     public int enemiesAlive;
 
-    public GameObject altar;
+    
 
     
 
@@ -36,7 +36,7 @@ public class EnemySpawnScript : MonoBehaviour
             enemyHasSpawned = true;
             enemiesAlive += 1;
         }
-       // EnemyManager.instance.EnemiesAliveCheck(enemiesAlive);
+       GameManager.Instance.enemiesAlive = enemiesAlive;
     }
 
     private void Awake()
@@ -49,7 +49,7 @@ public class EnemySpawnScript : MonoBehaviour
     }
     private void Start()
     {
-        
+       
         
         if(sr.sprite == ShopRoom)
         {
@@ -57,7 +57,8 @@ public class EnemySpawnScript : MonoBehaviour
         }
         if (sr.sprite == AltarRoom)
         {
-            enemyHasSpawned = true;           
+            enemyHasSpawned = true;
+            Instantiate(Resources.Load("Prefabs/Altar"), transform.position, transform.rotation);
         }
         if (sr.sprite == BossRoom)
         {
@@ -71,7 +72,7 @@ public class EnemySpawnScript : MonoBehaviour
         {
             enemiesAlive = 0;
         }
-       // EnemyManager.instance.EnemiesAliveCheck(enemiesAlive);
+       
     }
 
     private void OnTriggerEnter2D(Collider2D other)
