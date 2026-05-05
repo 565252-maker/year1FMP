@@ -19,9 +19,9 @@ public class SkullShoot : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(other.gameObject.name == ("Player") || other.tag == ("Room"))
+        if(collision.gameObject.name == ("Player") || collision.gameObject.tag == ("Room"))
         {
             Destroy(gameObject);
         }

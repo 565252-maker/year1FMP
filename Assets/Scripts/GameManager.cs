@@ -43,8 +43,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-       
-        if(enemiesAlive != 0)
+        if (playerHealth > playerMaxHealth)
+        {
+            playerHealth = playerMaxHealth;
+        }
+
+        if (enemiesAlive != 0)
         {
             doorsLocked = true;
         }

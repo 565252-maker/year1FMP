@@ -11,6 +11,7 @@ TagManager:
   - EnemySpawn
   - DoorEnterScript
   - Altar
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Room
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 

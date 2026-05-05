@@ -74,6 +74,12 @@ public class SlimeEnemy : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.Instance.enemiesAlive -= 1;
+            float number = Random.Range(1, 7);
+            if (number == 1)
+            {
+                GameManager.Instance.playerHealth += 1;
+            }
+            
         }
 
         hurtCountdown = 0;

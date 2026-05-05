@@ -94,6 +94,7 @@ public class AltarScript : MonoBehaviour
             healthUpText.SetActive(true);
             textCountdown = 0;
 
+            GameManager.Instance.playerHealth += 3;
         }
 
         if (pickedItem == 2)
@@ -118,6 +119,8 @@ public class AltarScript : MonoBehaviour
             GameManager.Instance.playerMaxHealth += 2;
             GameManager.Instance.playerFireCooldown -= 0.1f;
             GameManager.Instance.playerShotSpeed += 0.8f;
+
+            GameManager.Instance.playerHealth += 3;
 
             allStatsUpText.SetActive(true);
             textCountdown = 0;

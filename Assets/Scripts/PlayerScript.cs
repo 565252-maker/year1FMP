@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
 
     private PlayerInput playerInput;
 
-   
+    [SerializeField] private healthBar HealthBar;
 
     Vector2 attackValue;
     Vector2 moveValue;
@@ -28,14 +28,25 @@ public class PlayerScript : MonoBehaviour
 
     public float timeSpeed;
 
-    
+    public float health;
+    public float maxHealth;
 
+    public float KBForce;
+    public float KBCounter;
+    public float KBTotalTime;
+
+    public bool KnockFromRight;
+    public bool KnockFromUp;
+
+    float immunityTimer = 0;
     private void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Attack");
         doorEnterScript = GetComponent<DoorEnterScript>();
-        
+        health = GameManager.Instance.playerHealth;
+
+       
     }
     private void Awake()
     {
@@ -53,10 +64,18 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
+        immunityTimer += Time.deltaTime;
+
         moveValue = moveAction.ReadValue<Vector2>();
         attackValue = attackAction.ReadValue<Vector2>();
 
-      //  print(moveValue.x);
+        maxHealth = GameManager.Instance.playerMaxHealth;
+        HealthBar.SetmaxHealth(maxHealth);
+
+        health = GameManager.Instance.playerHealth;
+        HealthBar.SetHealth(health);
+
+        //  print(moveValue.x);
         if (attackValue.x != 0 || attackValue.y != 0)
         {
             Shoot(attackValue);
@@ -126,7 +145,31 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = moveValue * speed;
+        if(KBCounter <= 0)
+        {
+            rb.linearVelocity = moveValue * speed;
+        }
+        else
+        {
+            if (KnockFromRight)
+            {
+                rb.linearVelocity = new Vector2(-KBForce, 0);
+            }
+            if (!KnockFromRight)
+            {
+                rb.linearVelocity = new Vector2(KBForce, 0);
+            }
+            if (KnockFromUp)
+            {
+                rb.linearVelocity = new Vector2(0,-KBForce);
+            }
+            if (!KnockFromUp)
+            {
+                rb.linearVelocity = new Vector2(0, KBForce);
+            }
+
+            KBCounter -= Time.deltaTime;
+        }
     }
 
     public void Shoot( Vector2 attackDirection )
@@ -146,7 +189,42 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == ("Enemy") || collision.gameObject.tag == ("EnemyBullet"))
+        {
+            if(immunityTimer > 1.5f)
+            {
+                KBCounter = KBTotalTime;
+                if(collision.transform.position.x <= transform.position.x)
+                {
+                    KnockFromRight = false;
+                }
+                if (collision.transform.position.x >= transform.position.x)
+                {
+                    KnockFromRight = true;
+                }
+                if (collision.transform.position.y <= transform.position.x)
+                {
+                    KnockFromUp = false;
+                }
+                if (collision.transform.position.x >= transform.position.x)
+                {
+                    KnockFromUp = true;
+                }
+                immunityTimer = 0;
+                GameManager.Instance.playerHealth -= 1;
+                health = GameManager.Instance.playerHealth;
+                HealthBar.SetHealth(health);
 
+                if (health == 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
 
 
 
