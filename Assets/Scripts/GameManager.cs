@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public int enemiesAlive;
     public bool doorsLocked;
 
+    public float timeSpeed = 0;
+
+    public bool timeEaterHasSpawned;
+    float timeEaterCooldown;
+
     GameObject doorEnter;
     private void Awake()
     {
@@ -33,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        timeEaterHasSpawned = false;
         doorsLocked = false;
         playerDamage = 1;
         playerMaxHealth = 5;
@@ -51,10 +57,20 @@ public class GameManager : MonoBehaviour
         if (enemiesAlive != 0)
         {
             doorsLocked = true;
+            timeEaterHasSpawned = false;
         }
         else
         {
             doorsLocked = false;
+            timeEaterCooldown += Time.deltaTime;
+            if(timeEaterCooldown > 1)
+            {
+                GameObject timeEater = GameObject.FindGameObjectWithTag("TimeEater");
+                Destroy(timeEater);
+                timeEaterHasSpawned = false;
+                timeEaterCooldown = 0;
+            }
+           
         }
     }
 

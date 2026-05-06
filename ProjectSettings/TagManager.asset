@@ -12,6 +12,7 @@ TagManager:
   - DoorEnterScript
   - Altar
   - EnemyBullet
+  - TimeEater
   layers:
   - Default
   - TransparentFX

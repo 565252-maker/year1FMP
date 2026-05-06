@@ -39,6 +39,8 @@ public class PlayerScript : MonoBehaviour
     public bool KnockFromUp;
 
     float immunityTimer = 0;
+
+    float xSpeed, ySpeed;
     private void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
@@ -81,19 +83,48 @@ public class PlayerScript : MonoBehaviour
             Shoot(attackValue);
         }
 
-        if(moveValue.x > moveValue.y)
+        if(moveValue.x < 0)
         {
-            timeSpeed = moveValue.x;
+            xSpeed = -moveValue.x;
         }
         else
         {
-            timeSpeed = moveValue.y;
+            xSpeed = moveValue.x;
+        }
+
+        if (moveValue.y < 0)
+        {
+            ySpeed = -moveValue.y;
+        }
+        else
+        {
+            ySpeed = moveValue.y;
+        }
+
+        if (xSpeed > ySpeed)
+        {
+            timeSpeed = xSpeed;
+
+        }
+        else
+        {
+            timeSpeed = ySpeed;
+
+        }
+
+        if(timeSpeed < 0)
+        {
+            timeSpeed = -timeSpeed; 
         }
 
         if(timeSpeed == 0)
         {
             timeSpeed = 0.1f;
         }
+
+       
+
+        GameManager.Instance.timeSpeed = timeSpeed;
         if (moveValue.x > 0)
         {
             anim.SetBool("walkingRight", true);
@@ -138,9 +169,12 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("walkingDown", false);
         }
 
-        shootCooldown += Time.deltaTime;
+        shootCooldown += Time.deltaTime * timeSpeed;
 
-       
+        if(immunityTimer > 0.2f) 
+        {
+            anim.SetBool("hit", false);
+        }
     }
 
     private void FixedUpdate()
@@ -217,6 +251,7 @@ public class PlayerScript : MonoBehaviour
                 GameManager.Instance.playerHealth -= 1;
                 health = GameManager.Instance.playerHealth;
                 HealthBar.SetHealth(health);
+                anim.SetBool("hit", true);
 
                 if (health == 0)
                 {

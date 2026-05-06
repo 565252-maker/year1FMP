@@ -12,6 +12,8 @@ public class playerProjectileScript : MonoBehaviour
     public Vector2 attackValue;
 
     private Vector2 direction;
+
+    float timeSpeed;
     private void Start()
     {
         direction = attackValue;
@@ -27,8 +29,8 @@ public class playerProjectileScript : MonoBehaviour
 
     private void Update()
     {
-
-        rb.linearVelocity = direction * speed;
+        timeSpeed = GameManager.Instance.timeSpeed;
+        rb.linearVelocity = direction * speed * timeSpeed;
 
     }
 

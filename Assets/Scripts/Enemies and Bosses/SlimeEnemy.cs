@@ -21,7 +21,7 @@ public class SlimeEnemy : MonoBehaviour
     GameObject playerObj;
     PlayerScript playerScript;
 
-    //float timeSpeed;
+    float timeSpeed;
 
     private void Awake()
     {
@@ -33,8 +33,7 @@ public class SlimeEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      //  playerObj = GameObject.FindGameObjectWithTag("Player");
-      //  playerScript = player.GetComponent<PlayerScript>();
+      
 
         player = GameObject.Find("Player").transform;
         health = 1.5f;
@@ -55,14 +54,14 @@ public class SlimeEnemy : MonoBehaviour
             anim.SetBool("hurt", false);
         }
 
-       // timeSpeed = playerScript.timeSpeed;
+       timeSpeed = GameManager.Instance.timeSpeed;
     }
 
     private void FixedUpdate()
     {
         if (player)
         {
-            rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * speed;// * timeSpeed;
+            rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * speed * timeSpeed;
         }
     }
 

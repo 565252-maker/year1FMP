@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class SkullShoot : MonoBehaviour
 {
+    float timeSpeed;
 
     float moveSpeed = 1.5f;
+
+
 
     Rigidbody2D rb;
 
@@ -15,8 +18,13 @@ public class SkullShoot : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         moveDirection =(player.transform.position - transform.position).normalized * moveSpeed;
-        rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y);
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 10f);
+    }
+
+    private void Update()
+    {
+        timeSpeed = GameManager.Instance.timeSpeed;
+        rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * timeSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -10,6 +10,8 @@ public class DoorEnterScript : MonoBehaviour
     GameObject player;
     GameObject cam;
     GameObject enemySpawn;
+   
+
     EnemySpawnScript enemySpawnScript;
 
     
@@ -47,7 +49,7 @@ public class DoorEnterScript : MonoBehaviour
         enemySpawn = GameObject.FindGameObjectWithTag("EnemySpawn");
         enemySpawnScript = enemySpawn.GetComponent<EnemySpawnScript>();
 
-        
+       
     }
     private void Update()
     {
@@ -66,6 +68,7 @@ public class DoorEnterScript : MonoBehaviour
                     player.transform.position += new Vector3(-1, 0, 0);
                     cam.transform.position += new Vector3(-5.12f, 0, 0);
                     HasCollided = false;
+
 
                 }
 
@@ -94,6 +97,14 @@ public class DoorEnterScript : MonoBehaviour
                     HasCollided = false;
 
 
+                }
+
+                
+
+                if(GameManager.Instance.timeEaterHasSpawned == false)
+                {
+                    Instantiate(Resources.Load("Prefabs/TimeEater"), new Vector2(25.6f,-11.52f), Quaternion.identity);
+                    GameManager.Instance.timeEaterHasSpawned = true;
                 }
 
                 //Special Door Sprite check for direction teleport and Time eater disable/enable

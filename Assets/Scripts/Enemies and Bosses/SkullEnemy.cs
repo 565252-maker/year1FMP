@@ -26,6 +26,7 @@ public class SkullEnemy : MonoBehaviour
 
     EnemySpawnScript enemySpawnScript;
 
+    float timeSpeed;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,7 +48,9 @@ public class SkullEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = direction * speed;
+        timeSpeed = GameManager.Instance.timeSpeed;
+
+        rb.linearVelocity = direction * speed * timeSpeed;
 
         duration += Time.deltaTime;
 
@@ -59,7 +62,7 @@ public class SkullEnemy : MonoBehaviour
 
         CheckIfTimeToFire();
 
-        fireRate += Time.deltaTime;
+        fireRate += Time.deltaTime * timeSpeed;
 
         hurtCountdown += Time.deltaTime;
         if (hurtCountdown > 0.2f)
