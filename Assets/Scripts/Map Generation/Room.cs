@@ -13,9 +13,18 @@ public class Room : MonoBehaviour
 {
    public SpriteRenderer spriteRenderer;
 
-   public void SetupRoom(Cell currentCell, RoomScriptable room)
+
+    public void SetupRoom(Cell currentCell, RoomScriptable room)
     {
-        spriteRenderer.sprite = room.roomVariations[Random.Range(0, room.roomVariations.Length)];
+        if ((GameManager.Instance.currentFloor == 3 || GameManager.Instance.currentFloor == 4))
+        {
+            spriteRenderer.sprite = room.roomVariations[1];
+        }
+        else
+        { 
+            spriteRenderer.sprite = room.roomVariations[0];
+        }
+            
 
         var floorplan = MapGenerator.instance.getFloorPlan;
         var cellList = MapGenerator.instance.getSpawnedCells;

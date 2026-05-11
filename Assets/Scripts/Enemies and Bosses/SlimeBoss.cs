@@ -1,7 +1,7 @@
 using System.Threading;
 using UnityEngine;
 
-public class SlimeEnemy : MonoBehaviour
+public class SlimeBoss : MonoBehaviour
 {
     public float speed = 0.5f;
     Rigidbody2D rb;
@@ -10,6 +10,7 @@ public class SlimeEnemy : MonoBehaviour
     Vector2 moveDirection;
     private float health;
 
+    public int stage;
     
 
     float hurtCountdown = 0;
@@ -36,7 +37,15 @@ public class SlimeEnemy : MonoBehaviour
       
 
         player = GameObject.Find("Player").transform;
-        health = 1.5f;
+
+        if(stage == 1)
+        {
+            health = 15f;
+        }
+        if(stage == 2)
+        {
+            health = 5f;
+        }
     }   
 
     // Update is called once per frame
@@ -71,18 +80,28 @@ public class SlimeEnemy : MonoBehaviour
 
         if (health <= 0)
         {
+            if(stage == 1)
+            {
+                for(int i = 0; i < 2; i++)
+                {
+                    Instantiate(Resources.Load("Prefabs/SlimeBossMini"), transform.position, transform.rotation);
+                    GameManager.Instance.enemiesAlive += 1;
+                }
+            }
+            if(stage == 2)
+            {
+                for(int i = 0; i < 2; i++)
+                {
+                    Instantiate(Resources.Load("Prefabs/Enemies_0"), transform.position, transform.rotation);
+                    GameManager.Instance.enemiesAlive += 1;
+                }
+            }
             Destroy(gameObject);
             GameManager.Instance.enemiesAlive -= 1;
-            float number = Random.Range(1, 7);
+            float number = Random.Range(1, 10);
             if (number == 1)
             {
                 GameManager.Instance.playerHealth += 1;
-            }
-            float coin = Random.Range(1, 5);
-            if (coin == 1)
-            {
-                Instantiate(Resources.Load("Prefabs/coin_0"), transform.position, transform.rotation);
-                print("coinDropped");
             }
             
         }

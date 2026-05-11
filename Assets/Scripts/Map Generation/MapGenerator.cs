@@ -36,7 +36,7 @@ public class MapGenerator : MonoBehaviour
         instance = this;
 
         minRooms = 7;
-        maxRooms = 15;
+        maxRooms = 10;
         cellSize = 0.16f;
         spawnedCells = new();
 
@@ -54,7 +54,7 @@ public class MapGenerator : MonoBehaviour
          SetupDungeon();      
     }
 
-    void SetupDungeon() 
+    public void SetupDungeon() 
     { 
         for(int i = 0; i < spawnedCells.Count; i++)
         {

@@ -2367,6 +2367,7 @@ MonoBehaviour:
   doorsLocked: 0
   timeSpeed: 0
   timeEaterHasSpawned: 0
+  currentFloor: 0
 --- !u!4 &1768857639
 Transform:
   m_ObjectHideFlags: 0

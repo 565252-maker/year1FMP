@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapGenerator.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Floor 2.unity
+    guid: 92d7797e725a311478b33508853c02ed
+  - enabled: 1
+    path: Assets/Scenes/Floor 3.unity
+    guid: 40f26cf3e5643d54f8c1b5212d9a5453
+  - enabled: 1
+    path: Assets/Scenes/Floor 4.unity
+    guid: 5c5019d3164967d4187a83e14646fbb7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

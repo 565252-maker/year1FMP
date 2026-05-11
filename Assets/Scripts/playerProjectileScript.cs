@@ -48,6 +48,16 @@ public class playerProjectileScript : MonoBehaviour
             {
                 enemyComponent1.TakeDamage(damage);
             }
+
+            if (other.gameObject.TryGetComponent<SlimeBoss>(out SlimeBoss enemyComponent2))
+            {
+                enemyComponent2.TakeDamage(damage);
+            }
+
+            if (other.gameObject.TryGetComponent<SkullBoss>(out SkullBoss enemyComponent3))
+            {
+                enemyComponent3.TakeDamage(damage);
+            }
         }
         if (other.tag == ("Room"))
         {

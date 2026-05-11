@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
 
     public playerProjectileScript projectileScript;
     public SlimeEnemy slimeEnemy;
+    public SlimeBoss slimeBoss;
     public SkullEnemy skullEnemy;
+    public SkullBoss skullBoss;
 
     public int enemiesAlive;
     public bool doorsLocked;
@@ -22,7 +24,11 @@ public class GameManager : MonoBehaviour
     public bool timeEaterHasSpawned;
     float timeEaterCooldown;
 
+    public int currentFloor;
+
     GameObject doorEnter;
+
+    public int coinCount;
     private void Awake()
     {
         if(Instance == null)
@@ -45,10 +51,13 @@ public class GameManager : MonoBehaviour
         playerHealth = 5;
         playerFireCooldown = 0.5f;
         playerShotSpeed = 2.5f;
+        currentFloor = 1;
+        coinCount = 0;
     }
 
     private void Update()
     {
+        
         if (playerHealth > playerMaxHealth)
         {
             playerHealth = playerMaxHealth;
@@ -63,7 +72,7 @@ public class GameManager : MonoBehaviour
         {
             doorsLocked = false;
             timeEaterCooldown += Time.deltaTime;
-            if(timeEaterCooldown > 1)
+            if(timeEaterCooldown > 0.1f)
             {
                 GameObject timeEater = GameObject.FindGameObjectWithTag("TimeEater");
                 Destroy(timeEater);

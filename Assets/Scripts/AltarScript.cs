@@ -17,8 +17,10 @@ public class AltarScript : MonoBehaviour
     GameObject allStatsUpText;
 
     float textCountdown;
+    bool textActive;
     private void Start()
     {
+        textActive = false;
         hasCollided = false;
         
         items[0] = 0;
@@ -56,13 +58,14 @@ public class AltarScript : MonoBehaviour
 
     private void Update()
     {
-        if (textCountdown > 2)
+        if (textCountdown > 2 && textActive == false)
         {
             damageUpText.SetActive(false);
             healthUpText.SetActive(false);
             fireRateUpText.SetActive(false);
             shotSpeedUpText.SetActive(false);
             allStatsUpText.SetActive(false);
+            textActive = true;
         }
 
         textCountdown += Time.deltaTime;
@@ -127,6 +130,7 @@ public class AltarScript : MonoBehaviour
         }
 
         hasCollided = true;
+        textActive = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

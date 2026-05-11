@@ -40,7 +40,7 @@ public class timeEaterScript : MonoBehaviour
         {
             speed = 0.2f;
         }
-        print(distance);
+        
 
         if (player)
         {

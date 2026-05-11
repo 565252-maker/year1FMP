@@ -15,14 +15,17 @@ public class EnemySpawnScript : MonoBehaviour
     public SpriteRenderer sr;
 
     public Sprite ShopRoom;
+    public Sprite ShopRoom2;
 
     public Sprite AltarRoom;
+    public Sprite AltarRoom2;
 
     public Sprite BossRoom;
+    public Sprite BossRoom2;
 
     public int enemiesAlive;
 
-    
+    bool hatchSpawned;
 
     
 
@@ -39,6 +42,16 @@ public class EnemySpawnScript : MonoBehaviour
        GameManager.Instance.enemiesAlive = enemiesAlive;
     }
 
+    public void SpawnBoss()
+    {
+        enemiesAlive = 0;
+        int choice = Random.Range(0, 2);
+        Instantiate(Bosses[choice], spawnPoint.position, spawnPoint.rotation);
+        enemyHasSpawned = true;
+        enemiesAlive += 1;
+        GameManager.Instance.enemiesAlive = enemiesAlive;
+    }
+
     private void Awake()
     {
         if (transform.position == new Vector3(25.60f, -11.52f, 0))
@@ -49,21 +62,17 @@ public class EnemySpawnScript : MonoBehaviour
     }
     private void Start()
     {
-       
-        
-        if(sr.sprite == ShopRoom)
+        hatchSpawned = false;
+        if(sr.sprite == ShopRoom || sr.sprite == ShopRoom2)
         {
             enemyHasSpawned =true; 
         }
-        if (sr.sprite == AltarRoom)
+        if (sr.sprite == AltarRoom || sr.sprite == AltarRoom2)
         {
             enemyHasSpawned = true;
             Instantiate(Resources.Load("Prefabs/Altar"), transform.position, transform.rotation);
         }
-        if (sr.sprite == BossRoom)
-        {
-            enemyHasSpawned = true;
-        }
+        
     }
 
     private void Update()
@@ -72,7 +81,15 @@ public class EnemySpawnScript : MonoBehaviour
         {
             enemiesAlive = 0;
         }
-       
+
+        if (sr.sprite == BossRoom || sr.sprite == BossRoom2)
+        {
+            if(enemyHasSpawned && GameManager.Instance.enemiesAlive == 0 && hatchSpawned == false)
+            {
+                Instantiate(Resources.Load("Prefabs/Hatch"),transform.position,transform.rotation);
+                hatchSpawned = true; 
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -81,8 +98,16 @@ public class EnemySpawnScript : MonoBehaviour
         {
             if (!enemyHasSpawned)
             {
-                SpawnEnemies();
-                enemyHasSpawned = true;
+                if(sr.sprite != BossRoom && sr.sprite != BossRoom2)
+                {
+                    SpawnEnemies();
+                    enemyHasSpawned = true;
+                }
+                if (sr.sprite== BossRoom || sr.sprite == BossRoom2)
+                {
+                    SpawnBoss();
+                    enemyHasSpawned = true;
+                }
 
             }
         }

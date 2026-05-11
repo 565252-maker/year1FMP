@@ -213,13 +213,18 @@ MonoBehaviour:
   - {fileID: 8992629251194808440, guid: 24e0f6f5f1f787542a1f7532bfcbfddc, type: 3}
   - {fileID: 3318195743127666224, guid: 1b244d2e51796d746ae1008983275f25, type: 3}
   Bosses:
-  - {fileID: 0}
+  - {fileID: 3800714108343300090, guid: 8e1e34fead4a7d748884863a09a0e36e, type: 3}
+  - {fileID: 3043395446057342527, guid: 9c76d13cdfbc012448a594f313bb2760, type: 3}
   enemyCount: 5
   spawnPoint: {fileID: 1717838092744600154}
   sr: {fileID: 3079410831248478921}
   ShopRoom: {fileID: 1765069258945606883, guid: a9b506e719616374b8806836d64540c8, type: 3}
+  ShopRoom2: {fileID: 6282512034818537176, guid: 1ad1614f37e30134bb409aece490c04e, type: 3}
   AltarRoom: {fileID: 1765069258945606883, guid: 19add06db1a9f9545be0b3f253c30189, type: 3}
+  AltarRoom2: {fileID: 6282512034818537176, guid: a81cba569580fdc4eb75cf605078dbf2, type: 3}
   BossRoom: {fileID: 1765069258945606883, guid: 6cf473444f2987440b2db25ad751e296, type: 3}
+  BossRoom2: {fileID: 6282512034818537176, guid: cf66e8f614b6c984a9ae44f22d27355a, type: 3}
+  enemiesAlive: 0
 --- !u!61 &5953204271870648689
 BoxCollider2D:
   m_ObjectHideFlags: 0

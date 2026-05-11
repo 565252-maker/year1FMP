@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkullEnemy : MonoBehaviour
+public class SkullBoss : MonoBehaviour
 {
     public float speed;
     float duration;
@@ -39,7 +39,7 @@ public class SkullEnemy : MonoBehaviour
         nextFire = 3;
         SetNewDestination();
 
-        health = 2f;
+        health = 30f;
 
         EnemySpawn = GameObject.FindWithTag("EnemySpawn");
         enemySpawnScript = EnemySpawn.GetComponent<EnemySpawnScript>();
@@ -107,12 +107,7 @@ public class SkullEnemy : MonoBehaviour
             {
                 GameManager.Instance.playerHealth += 1;
             }
-            float coin = Random.Range(1, 5);
-            if (coin == 1)
-            {
-                Instantiate(Resources.Load("Prefabs/coin_0"), transform.position, transform.rotation);
-                print("coinDropped");
-            }
+            
         }
 
         hurtCountdown = 0;
