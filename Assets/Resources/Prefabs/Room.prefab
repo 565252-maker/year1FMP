@@ -279,6 +279,7 @@ MonoBehaviour:
   Bosses:
   - {fileID: 3800714108343300090, guid: 8e1e34fead4a7d748884863a09a0e36e, type: 3}
   - {fileID: 3043395446057342527, guid: 9c76d13cdfbc012448a594f313bb2760, type: 3}
+  - {fileID: 3159730212163774927, guid: bcba6005aef10744b9020b6d9e1aedfc, type: 3}
   enemyCount: 5
   spawnPoint: {fileID: 1717838092744600154}
   sr: {fileID: 3079410831248478921}

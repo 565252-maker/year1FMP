@@ -30,6 +30,10 @@ public class ShopAltarScript : MonoBehaviour
         items[4] = 4;
 
         damageUpText = GameObject.Find("DamageUp");
+        if( damageUpText == null )
+        {
+            print("Damageup not found");
+        }
        
         healthUpText = GameObject.Find("HealthUp");
        
@@ -45,11 +49,29 @@ public class ShopAltarScript : MonoBehaviour
     {
         if (textCountdown > 2)
         {
-            damageUpText.SetActive(false);
-            healthUpText.SetActive(false);
-            fireRateUpText.SetActive(false);
-            shotSpeedUpText.SetActive(false);
-            allStatsUpText.SetActive(false);
+            if (damageUpText != null)
+            {
+                damageUpText.SetActive(false);
+            }
+            if (healthUpText != null)
+            {
+                healthUpText.SetActive(false);
+
+            }
+            if (fireRateUpText != null)
+            {
+                fireRateUpText.SetActive(false);
+            }
+            if(shotSpeedUpText != null)
+            {
+                shotSpeedUpText.SetActive(false);
+
+            }
+            if(allStatsUpText != null)
+            {
+                allStatsUpText.SetActive(false);
+            }
+           
             
         }
 

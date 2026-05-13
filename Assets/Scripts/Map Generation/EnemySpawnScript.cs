@@ -45,12 +45,24 @@ public class EnemySpawnScript : MonoBehaviour
 
     public void SpawnBoss()
     {
+        
         enemiesAlive = 0;
-        int choice = Random.Range(0, 2);
-        Instantiate(Bosses[choice], spawnPoint.position, spawnPoint.rotation);
-        enemyHasSpawned = true;
-        enemiesAlive += 1;
-        GameManager.Instance.enemiesAlive = enemiesAlive;
+        if(GameManager.Instance.currentFloor != 4)
+        {
+            int choice = Random.Range(0, 2);
+            Instantiate(Bosses[choice], spawnPoint.position, spawnPoint.rotation);
+            enemyHasSpawned = true;
+            enemiesAlive += 1;
+            GameManager.Instance.enemiesAlive = enemiesAlive;
+        }
+        if(GameManager.Instance.currentFloor == 4)
+        {
+            Instantiate(Bosses[2], spawnPoint.position + new Vector3(0,-0.3f,0), spawnPoint.rotation);
+            enemyHasSpawned = true;
+            enemiesAlive += 1;
+            GameManager.Instance.enemiesAlive = enemiesAlive;
+        }
+        
     }
 
     private void Awake()

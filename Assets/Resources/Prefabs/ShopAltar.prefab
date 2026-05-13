@@ -256,3 +256,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed574e444035ac4d95aa48352f4b1e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopAltarScript
+  altarScript: {fileID: 3942283097567903252, guid: 3b6c207492e386341800a64f8bfca06f, type: 3}

@@ -113,6 +113,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "e4c3492c-17b7-49ec-a8f9-e9b85da307f9",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "arrow keys",
                     "id": "82f5d918-b796-4c7e-91a0-1867530c6be7",
                     "path": "2DVector",
@@ -181,7 +192,7 @@
                 {
                     "name": "Up",
                     "id": "4f5fd4b5-1ed1-4813-af5a-21c5fef0db90",
-                    "path": "<HID::Logitech Logitech Dual Action>/button4",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -192,7 +203,7 @@
                 {
                     "name": "Down",
                     "id": "3ece33ce-9321-4e7e-9632-76b7a54f5ded",
-                    "path": "<HID::Logitech Logitech Dual Action>/button2",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -203,7 +214,7 @@
                 {
                     "name": "Left",
                     "id": "7fa8e8e4-7d1c-4e28-98f2-f6682eae7b18",
-                    "path": "<HID::Logitech Logitech Dual Action>/trigger",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -214,7 +225,7 @@
                 {
                     "name": "Right",
                     "id": "e211f08e-754c-4cfe-b871-0d8e8c16d0e7",
-                    "path": "<HID::Logitech Logitech Dual Action>/button3",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
