@@ -27,7 +27,8 @@ public class EnemySpawnScript : MonoBehaviour
 
     bool hatchSpawned;
 
-    
+    public Transform bloodMachine;
+    public Transform powerUp;
 
     public void SpawnEnemies()
     {
@@ -65,12 +66,16 @@ public class EnemySpawnScript : MonoBehaviour
         hatchSpawned = false;
         if(sr.sprite == ShopRoom || sr.sprite == ShopRoom2)
         {
-            enemyHasSpawned =true; 
+            enemyHasSpawned =true;
+            Instantiate(Resources.Load("Prefabs/Blood Machine_0"), bloodMachine.position,bloodMachine.rotation);
+            Instantiate(Resources.Load("Prefabs/ShopAltar"), powerUp.position, powerUp.rotation);
         }
         if (sr.sprite == AltarRoom || sr.sprite == AltarRoom2)
         {
             enemyHasSpawned = true;
-            Instantiate(Resources.Load("Prefabs/Altar"), transform.position, transform.rotation);
+            
+            Instantiate(Resources.Load("Prefabs/Altar"), transform.position,transform.rotation);
+            
         }
         
     }

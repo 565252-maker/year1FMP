@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: e3518b9591f710d478e81fdfcf1d7cf5
+guid: 64b5ce3f38b0316469f5510b0e2e2d05
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3907038435176965616
-    second: AltarSprites_0
-  - first:
-      213: 4650908161164433432
-    second: AltarSprites_1
-  - first:
-      213: -5548521297938951234
-    second: AltarSprites_2
-  - first:
-      213: -912677996971918916
-    second: AltarSprites_3
+      213: -2644737021805766677
+    second: Blood Machine_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -174,89 +165,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AltarSprites_0
+      name: Blood Machine_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
+        x: 11
+        y: 11
+        width: 42
+        height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01a9a7b5e3967c9c0800000000000000
-      internalID: -3907038435176965616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AltarSprites_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 818db2db4585b8040800000000000000
-      internalID: 4650908161164433432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AltarSprites_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb3d8afd641bff2b0800000000000000
-      internalID: -5548521297938951234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AltarSprites_3
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb97c2482348553f0800000000000000
-      internalID: -912677996971918916
+      spriteID: be751fae0b10c4bd0800000000000000
+      internalID: -2644737021805766677
       vertices: []
       indices: 
       edges: []
@@ -265,7 +190,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 78e8bb00d69917a4cbc1f1656a8eea2b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -273,14 +198,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      AltarSprites_0: -3907038435176965616
-      AltarSprites_1: 4650908161164433432
-      AltarSprites_2: -5548521297938951234
-      AltarSprites_3: -912677996971918916
+      Blood Machine_0: -2644737021805766677
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

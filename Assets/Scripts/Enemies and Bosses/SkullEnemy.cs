@@ -102,12 +102,12 @@ public class SkullEnemy : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.Instance.enemiesAlive -= 1;
-            float number = Random.Range(1, 10);
+            float number = Random.Range(1, 20);
             if (number == 1)
             {
                 GameManager.Instance.playerHealth += 1;
             }
-            float coin = Random.Range(1, 5);
+            float coin = Random.Range(1, 4);
             if (coin == 1)
             {
                 Instantiate(Resources.Load("Prefabs/coin_0"), transform.position, transform.rotation);

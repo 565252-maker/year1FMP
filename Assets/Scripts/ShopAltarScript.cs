@@ -3,12 +3,12 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AltarScript : MonoBehaviour
+public class ShopAltarScript : MonoBehaviour
 {
     int[] items = new int[5];
     int pickedItem;
 
-    bool hasCollided;
+    
 
     private GameObject damageUpText;
     private GameObject healthUpText;
@@ -17,11 +17,11 @@ public class AltarScript : MonoBehaviour
     private GameObject allStatsUpText;
 
     float textCountdown;
-    bool textActive;
+    
     private void Start()
     {
-        textActive = false;
-        hasCollided = false;
+       
+        
         
         items[0] = 0;
         items[1] = 1;
@@ -30,42 +30,27 @@ public class AltarScript : MonoBehaviour
         items[4] = 4;
 
         damageUpText = GameObject.Find("DamageUp");
-        if(damageUpText != null)
-        {
-            damageUpText.SetActive(false);
-        }
+       
         healthUpText = GameObject.Find("HealthUp");
-        if (healthUpText != null)
-        {
-            healthUpText.SetActive(false);
-        }
+       
         fireRateUpText = GameObject.Find("FireRateUp");
-        if (fireRateUpText != null)
-        {
-            fireRateUpText.SetActive(false);
-        }
+       
         shotSpeedUpText = GameObject.Find("ShotSpeedUp");
-        if (shotSpeedUpText != null)
-        {
-            shotSpeedUpText.SetActive(false);
-        }
+        
         allStatsUpText = GameObject.Find("AllStatsUp");
-        if (allStatsUpText != null)
-        {
-            allStatsUpText.SetActive(false);
-        }
+       
     }
 
     private void Update()
     {
-        if (textCountdown > 2 && textActive == false)
+        if (textCountdown > 2)
         {
             damageUpText.SetActive(false);
             healthUpText.SetActive(false);
             fireRateUpText.SetActive(false);
             shotSpeedUpText.SetActive(false);
             allStatsUpText.SetActive(false);
-            textActive = true;
+            
         }
 
         textCountdown += Time.deltaTime;
@@ -129,15 +114,20 @@ public class AltarScript : MonoBehaviour
             textCountdown = 0;
         }
 
-        hasCollided = true;
-        textActive = false;
+        
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == ("Player") && hasCollided == false)
+        if (collision.gameObject.name == ("Player"))
         {
-            PickItem();
+            if(GameManager.Instance.coinCount >= 15)
+            {
+                PickItem();
+                GameManager.Instance.coinCount -= 15;
+            }
+            
 
         }
     }
